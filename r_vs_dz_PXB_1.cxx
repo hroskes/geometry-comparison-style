@@ -1,5 +1,13 @@
+#include "TCanvas.h"
+#include "TColor.h"
+#include "TGraph.h"
+#include "TMultiGraph.h"
+#include "TAxis.h"
+#include "Alignment/OfflineValidation/plugins/TkAlStyle.cc"
+
 void r_vs_dz_PXB_1()
 {
+   TkAlStyle::set(INTERNAL);
 //=========Macro generated from canvas: c_r_vs_dz_PXB_1/r vs. dz at PXB level
 //=========  (Mon Jul  6 19:49:37 2015) by ROOT version6.02/05
    TCanvas *c_r_vs_dz_PXB_1 = new TCanvas("c_r_vs_dz_PXB_1", "r vs. dz at PXB level",0,0,3508,2480);
@@ -1589,4 +1597,5 @@ void r_vs_dz_PXB_1()
    c_r_vs_dz_PXB_1->Modified();
    c_r_vs_dz_PXB_1->cd();
    c_r_vs_dz_PXB_1->SetSelected(c_r_vs_dz_PXB_1);
+   c_r_vs_dz_PXB_1->SaveAs("r_vs_dz_PXB_1.png");
 }
