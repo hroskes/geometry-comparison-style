@@ -10,7 +10,8 @@ void phi_vs_dz_PXF_1()
    TkAlStyle::set(INTERNAL);
 //=========Macro generated from canvas: c_phi_vs_dz_PXF_1/phi vs. dz at PXF level
 //=========  (Mon Jul  6 19:49:40 2015) by ROOT version6.02/05
-   TCanvas *c_phi_vs_dz_PXF_1 = new TCanvas("c_phi_vs_dz_PXF_1", "phi vs. dz at PXF level",0,0,3508,2480);
+   TCanvas *c_phi_vs_dz_PXF_1 = new TCanvas("c_phi_vs_dz_PXF_1", "phi vs. dz at PXF level"/*,0,0,3508,2480*/);
+/*
    c_phi_vs_dz_PXF_1->Range(0,0,1,1);
    c_phi_vs_dz_PXF_1->SetFillColor(0);
    c_phi_vs_dz_PXF_1->SetBorderMode(0);
@@ -21,6 +22,7 @@ void phi_vs_dz_PXF_1()
    c_phi_vs_dz_PXF_1->SetRightMargin(0.05);
    c_phi_vs_dz_PXF_1->SetBottomMargin(0.16);
    c_phi_vs_dz_PXF_1->SetFrameBorderMode(0);
+*/
    
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("phi_vs_dz_PXF_1");
@@ -1394,14 +1396,14 @@ void phi_vs_dz_PXF_1()
    multigraph->Add(graph,"P");
    multigraph->Draw("A");
    multigraph->GetXaxis()->SetTitle("#phi /rad");
-   multigraph->GetXaxis()->SetLabelFont(132);
-   multigraph->GetXaxis()->SetLabelSize(0.08);
-   multigraph->GetXaxis()->SetTitleSize(0.08);
+   //multigraph->GetXaxis()->SetLabelFont(132);
+   //multigraph->GetXaxis()->SetLabelSize(0.08);
+   //multigraph->GetXaxis()->SetTitleSize(0.08);
    multigraph->GetYaxis()->SetTitle("#Deltaz /#mum");
-   multigraph->GetYaxis()->SetLabelFont(132);
-   multigraph->GetYaxis()->SetLabelSize(0.08);
-   multigraph->GetYaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitleFont(42);
+   //multigraph->GetYaxis()->SetLabelFont(132);
+   //multigraph->GetYaxis()->SetLabelSize(0.08);
+   //multigraph->GetYaxis()->SetTitleSize(0.08);
+   //multigraph->GetYaxis()->SetTitleFont(42);
    c_phi_vs_dz_PXF_1->Modified();
    c_phi_vs_dz_PXF_1->cd();
    c_phi_vs_dz_PXF_1->SetSelected(c_phi_vs_dz_PXF_1);

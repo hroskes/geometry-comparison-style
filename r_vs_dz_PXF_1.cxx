@@ -10,7 +10,8 @@ void r_vs_dz_PXF_1()
    TkAlStyle::set(INTERNAL);
 //=========Macro generated from canvas: c_r_vs_dz_PXF_1/r vs. dz at PXF level
 //=========  (Mon Jul  6 19:49:37 2015) by ROOT version6.02/05
-   TCanvas *c_r_vs_dz_PXF_1 = new TCanvas("c_r_vs_dz_PXF_1", "r vs. dz at PXF level",0,0,3508,2480);
+   TCanvas *c_r_vs_dz_PXF_1 = new TCanvas("c_r_vs_dz_PXF_1", "r vs. dz at PXF level"/*,0,0,3508,2480*/);
+/*
    c_r_vs_dz_PXF_1->Range(0,0,1,1);
    c_r_vs_dz_PXF_1->SetFillColor(0);
    c_r_vs_dz_PXF_1->SetBorderMode(0);
@@ -21,6 +22,7 @@ void r_vs_dz_PXF_1()
    c_r_vs_dz_PXF_1->SetRightMargin(0.05);
    c_r_vs_dz_PXF_1->SetBottomMargin(0.16);
    c_r_vs_dz_PXF_1->SetFrameBorderMode(0);
+*/
    
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("r_vs_dz_PXF_1");
@@ -1394,14 +1396,14 @@ void r_vs_dz_PXF_1()
    multigraph->Add(graph,"P");
    multigraph->Draw("A");
    multigraph->GetXaxis()->SetTitle("r /cm");
-   multigraph->GetXaxis()->SetLabelFont(132);
-   multigraph->GetXaxis()->SetLabelSize(0.08);
-   multigraph->GetXaxis()->SetTitleSize(0.08);
+   //multigraph->GetXaxis()->SetLabelFont(132);
+   //multigraph->GetXaxis()->SetLabelSize(0.08);
+   //multigraph->GetXaxis()->SetTitleSize(0.08);
    multigraph->GetYaxis()->SetTitle("#Deltaz /#mum");
-   multigraph->GetYaxis()->SetLabelFont(132);
-   multigraph->GetYaxis()->SetLabelSize(0.08);
-   multigraph->GetYaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitleFont(42);
+   //multigraph->GetYaxis()->SetLabelFont(132);
+   //multigraph->GetYaxis()->SetLabelSize(0.08);
+   //multigraph->GetYaxis()->SetTitleSize(0.08);
+   //multigraph->GetYaxis()->SetTitleFont(42);
    c_r_vs_dz_PXF_1->Modified();
    c_r_vs_dz_PXF_1->cd();
    c_r_vs_dz_PXF_1->SetSelected(c_r_vs_dz_PXF_1);
