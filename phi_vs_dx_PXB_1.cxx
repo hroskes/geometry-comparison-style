@@ -1,8 +1,20 @@
+#include "TCanvas.h"
+#include "TColor.h"
+#include "TGraph.h"
+#include "TMultiGraph.h"
+#include "TAxis.h"
+#include "TText.h"
+#include "TLatex.h"
+#include "TkAlStyle.cc"
+
 void phi_vs_dx_PXB_1()
 {
+
+   TkAlStyle::set(PRELIMINARY);
 //=========Macro generated from canvas: c_phi_vs_dx_PXB_1/phi vs. dx at PXB level
 //=========  (Mon Jul  6 19:49:41 2015) by ROOT version6.02/05
-   TCanvas *c_phi_vs_dx_PXB_1 = new TCanvas("c_phi_vs_dx_PXB_1", "phi vs. dx at PXB level",0,0,3508,2480);
+   TCanvas *c_phi_vs_dx_PXB_1 = new TCanvas("c_phi_vs_dx_PXB_1", "phi vs. dx at PXB level"/*,0,0,3508,2480*/);
+/*
    c_phi_vs_dx_PXB_1->Range(0,0,1,1);
    c_phi_vs_dx_PXB_1->SetFillColor(0);
    c_phi_vs_dx_PXB_1->SetBorderMode(0);
@@ -13,10 +25,10 @@ void phi_vs_dx_PXB_1()
    c_phi_vs_dx_PXB_1->SetRightMargin(0.05);
    c_phi_vs_dx_PXB_1->SetBottomMargin(0.16);
    c_phi_vs_dx_PXB_1->SetFrameBorderMode(0);
-   
+*/   
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("phi_vs_dx_PXB_1");
-   multigraph->SetTitle("PXB;#phi /rad;#Deltax /#mum");
+   multigraph->SetTitle(";#phi /rad;#Deltax /#mum");
    
    Double_t phidxPXBp_fx205[384] = {
    0.1399743,
@@ -1575,18 +1587,52 @@ void phi_vs_dx_PXB_1()
    ci = TColor::GetColor("#ff0000");
    graph->SetMarkerColor(ci);
    graph->SetMarkerStyle(6);
+
    multigraph->Add(graph,"P");
+
    multigraph->Draw("A");
-   multigraph->GetXaxis()->SetTitle("#phi /rad");
-   multigraph->GetXaxis()->SetLabelFont(132);
-   multigraph->GetXaxis()->SetLabelSize(0.08);
-   multigraph->GetXaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitle("#Deltax /#mum");
-   multigraph->GetYaxis()->SetLabelFont(132);
-   multigraph->GetYaxis()->SetLabelSize(0.08);
-   multigraph->GetYaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitleFont(42);
+
+   TText* textRed = new TText(0.18,0.87,"red: z<0,");
+   textRed->SetNDC();
+   textRed->SetTextColor(2);
+   textRed->Draw("same");
+
+   TText* textBlack = new TText(0.38,0.87,"black: z>0");
+   textBlack->SetNDC();   
+   textBlack->Draw("same");
+
+   TLatex* text_z2 = new TLatex(0.20,0.30,"x_{2}: Aligned (0T collisions + cosmic rays)");
+   text_z2->SetTextSize(0.03);
+   text_z2->SetNDC();
+   text_z2->Draw("same");
+   TLatex* text_z1 = new TLatex(0.20,0.25,"x_{1}: No Run-2 alignment (Run-1 geometry)");
+   text_z1->SetTextSize(0.03);
+   text_z1->SetNDC();
+   text_z1->Draw("same");
+
+   TLatex* textLabelUp1 = new TLatex(0.47,0.38,"BPIX half barrel -#pi/2<#phi<#pi/2");
+   textLabelUp1->SetNDC();
+   textLabelUp1->SetTextSize(0.04);
+   textLabelUp1->Draw("same");
+
+   TLatex* textLabelDown1 = new TLatex(0.38,0.17,"BPIX half barrel #phi<-#pi/2 and #phi>#pi/2");
+   textLabelDown1->SetNDC();
+   textLabelDown1->SetTextSize(0.04);
+   textLabelDown1->Draw("same");
+
+   TkAlStyle::drawStandardTitle();
+
+   multigraph->GetXaxis()->SetTitle("#phi [rad]");
+   //multigraph->GetXaxis()->SetLabelFont(132);
+   //multigraph->GetXaxis()->SetLabelSize(0.08);
+   //multigraph->GetXaxis()->SetTitleSize(0.08);
+   multigraph->GetYaxis()->SetTitle("#Deltax=x_{2}-x_{1} [#mum]");
+   //multigraph->GetYaxis()->SetLabelFont(132);
+   //multigraph->GetYaxis()->SetLabelSize(0.08);
+   //multigraph->GetYaxis()->SetTitleSize(0.08);
+   //multigraph->GetYaxis()->SetTitleFont(42);
    c_phi_vs_dx_PXB_1->Modified();
    c_phi_vs_dx_PXB_1->cd();
    c_phi_vs_dx_PXB_1->SetSelected(c_phi_vs_dx_PXB_1);
+   c_phi_vs_dx_PXB_1->SaveAs("phi_vs_dx_PXB_1.png");
 }

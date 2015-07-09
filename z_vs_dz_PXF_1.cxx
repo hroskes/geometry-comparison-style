@@ -9,7 +9,7 @@
 
 void z_vs_dz_PXF_1()
 {
-   TkAlStyle::set(INTERNAL);
+   TkAlStyle::set(PRELIMINARY);
 //=========Macro generated from canvas: c_z_vs_dz_PXF_1/z vs. dz at PXF level
 //=========  (Mon Jul  6 19:49:42 2015) by ROOT version6.02/05
    TCanvas *c_z_vs_dz_PXF_1 = new TCanvas("c_z_vs_dz_PXF_1", "z vs. dz at PXF level"/*,0,0,3508,2480*/);
@@ -28,7 +28,7 @@ void z_vs_dz_PXF_1()
    
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("z_vs_dz_PXF_1");
-   multigraph->SetTitle("CMS Preliminary 2015. PXF;z /cm;#Deltaz=z_{Al2}-z_{Al1} /#mum");
+   multigraph->SetTitle(";z /cm;#Deltaz=z_{Al2}-z_{Al1} /#mum");
    
    Double_t zdzPXFp_fx279[336] = {
    33.27489,
@@ -1407,29 +1407,34 @@ void z_vs_dz_PXF_1()
    textBlack->SetNDC();   
    textBlack->Draw("same");
 
-   TLatex* textLabelUp1 = new TLatex(0.20,0.80,"half disks z>0:");
-   TLatex* textLabelUp2 = new TLatex(0.20,0.75,"no significant movements");
+   TLatex* textLabelUp1 = new TLatex(0.30,0.77,"FPIX half disks z>0");
    textLabelUp1->SetNDC();
-   textLabelUp1->SetTextSize(0.035);
+   textLabelUp1->SetTextSize(0.05);
    textLabelUp1->Draw("same");
-   textLabelUp2->SetNDC();
-   textLabelUp2->SetTextSize(0.035);
-   textLabelUp2->Draw("same");
 
-   TLatex* textLabel1 = new TLatex(0.40,0.25,"half disks z<0:");
-   TLatex* textLabel2 = new TLatex(0.40,0.20,"~5 mm away from center");
-   textLabel1->SetTextSize(0.035);
+
+   TLatex* textLabel1 = new TLatex(0.35,0.25,"FPIX half disks z<0");
+   textLabel1->SetTextSize(0.05);
    textLabel1->SetNDC();
    textLabel1->Draw("same");
-   textLabel2->SetTextSize(0.035);
-   textLabel2->SetNDC();
-   textLabel2->Draw("same");
 
-   multigraph->GetXaxis()->SetTitle("z, [cm]");
+   TLatex* text_z2 = new TLatex(0.20,0.65,"z_{2}: Aligned (0T collisions + cosmic rays)");
+   text_z2->SetTextSize(0.04);
+   text_z2->SetNDC();
+   text_z2->Draw("same");
+   TLatex* text_z1 = new TLatex(0.20,0.60,"z_{1}: No Run-2 alignment (Run-1 geometry)");
+   text_z1->SetTextSize(0.04);
+   text_z1->SetNDC();
+   text_z1->Draw("same");
+
+
+   TkAlStyle::drawStandardTitle();
+
+   multigraph->GetXaxis()->SetTitle("z [cm]");
    //multigraph->GetXaxis()->SetLabelFont(132);
    //multigraph->GetXaxis()->SetLabelSize(0.08);
    //multigraph->GetXaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{Al2}-z_{Al1}, [#mum]");
+   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{2}-z_{1} [#mum]");
    //multigraph->GetYaxis()->SetLabelFont(132);
    //multigraph->GetYaxis()->SetLabelSize(0.08);
    //multigraph->GetYaxis()->SetTitleSize(0.08);

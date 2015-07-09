@@ -10,7 +10,7 @@
 void phi_vs_dz_PXB_1()
 {
 
-   TkAlStyle::set(INTERNAL);
+   TkAlStyle::set(PRELIMINARY);
 //=========Macro generated from canvas: c_phi_vs_dz_PXB_1/phi vs. dz at PXB level
 //=========  (Mon Jul  6 19:49:40 2015) by ROOT version6.02/05
    TCanvas *c_phi_vs_dz_PXB_1 = new TCanvas("c_phi_vs_dz_PXB_1", "phi vs. dz at PXB level"/*,0,0,3508,2480*/);
@@ -29,7 +29,7 @@ void phi_vs_dz_PXB_1()
    
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("phi_vs_dz_PXB_1");
-   multigraph->SetTitle("CMS Preliminary 2015. PXB;#phi /rad;#Deltaz=z_{Al2}-z_{Al1}/#mum");
+   multigraph->SetTitle(";#phi /rad;#Deltaz=z_{Al2}-z_{Al1}/#mum");
    
    Double_t phidzPXBp_fx157[384] = {
    0.1399743,
@@ -1602,37 +1602,36 @@ void phi_vs_dz_PXB_1()
    textBlack->SetNDC();   
    textBlack->Draw("same");
 
-   TLatex* textLabelUp1 = new TLatex(0.20,0.73,"half barrel -#pi<(2#pi-#phi)<#pi");
-   TLatex* textLabelUp2 = new TLatex(0.20,0.68,"WAS NOT subject of PXB repair");
-   TLatex* textLabelUp2Blue = new TLatex(0.20,0.68,"WAS NOT");
+   TLatex* textLabelUp1 = new TLatex(0.20,0.68,"BPIX half barrel #phi<-#pi/2 and #phi>#pi/2");
    textLabelUp1->SetNDC();
-   textLabelUp2->SetNDC();
-   textLabelUp2Blue->SetNDC();
-   textLabelUp2Blue->SetTextColor(4);
+   textLabelUp1->SetTextSize(0.04);
    textLabelUp1->Draw("same");
-   textLabelUp2->Draw("same");
-   textLabelUp2Blue->Draw("same");
 
-   TLatex* textLabelDown1 = new TLatex(0.20,0.23,"half barrel -#pi<#phi<#pi");
-   TLatex* textLabelDown2 = new TLatex(0.20,0.18,"WAS subject of PXB repair");
-   TLatex* textLabelDown2Blue = new TLatex(0.20,0.18,"WAS");
+   TLatex* text_z2 = new TLatex(0.20,0.63,"z_{2}: Aligned (0T collisions + cosmic rays)");
+   text_z2->SetTextSize(0.04);
+   text_z2->SetNDC();
+   text_z2->Draw("same");
+   TLatex* text_z1 = new TLatex(0.20,0.58,"z_{1}: No Run-2 alignment (Run-1 geometry)");
+   text_z1->SetTextSize(0.04);
+   text_z1->SetNDC();
+   text_z1->Draw("same");
+
+   TLatex* textLabelDown1 = new TLatex(0.20,0.18,"BPIX half barrel -#pi/2<#phi<#pi/2");
    textLabelDown1->SetNDC();
-   textLabelDown2->SetNDC();
-   textLabelDown2Blue->SetNDC();
-   textLabelDown2Blue->SetTextColor(4);
+   textLabelDown1->SetTextSize(0.04);
    textLabelDown1->Draw();
-   textLabelDown2->Draw();
-   textLabelDown2Blue->Draw();
+
+   TkAlStyle::drawStandardTitle();
 
 //   TLatex* textDelta = new TLatex(0.40,0.82,"#Deltaz=z_{Al2}-z_{Al1}");
 //   textDelta->SetNDC();
 //   textDelta->Draw("same");
     
-   multigraph->GetXaxis()->SetTitle("#phi, [rad]");
+   multigraph->GetXaxis()->SetTitle("#phi [rad]");
    //multigraph->GetXaxis()->SetLabelFont(132);
    //multigraph->GetXaxis()->SetLabelSize(0.08);
    //multigraph->GetXaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{Al2}-z_{Al1}, [#mum]");
+   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{2}-z_{1} [#mum]");
    //multigraph->GetYaxis()->SetLabelFont(132);
    //multigraph->GetYaxis()->SetLabelSize(0.08);
    //multigraph->GetYaxis()->SetTitleSize(0.08);
