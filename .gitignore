@@ -3,3 +3,10 @@
 *.so
 *.d
 *~
+*.aux
+*.out
+*.snm
+*.toc
+*.log
+*.nav
+*.pdf

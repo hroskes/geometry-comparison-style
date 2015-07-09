@@ -1,1 +1,1 @@
-rm *.so *.d *~
+rm *.so *.d *~ *.nav *.aux *.out *.snm *.toc
