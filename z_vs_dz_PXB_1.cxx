@@ -3,7 +3,8 @@
 #include "TGraph.h"
 #include "TMultiGraph.h"
 #include "TAxis.h"
-#include "Alignment/OfflineValidation/plugins/TkAlStyle.cc"
+#include "TText.h"
+#include "TkAlStyle.cc"
 
 void z_vs_dz_PXB_1()
 {
@@ -26,7 +27,7 @@ void z_vs_dz_PXB_1()
    
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("z_vs_dz_PXB_1");
-   multigraph->SetTitle("PXB;z /cm;#Deltaz /#mum");
+   multigraph->SetTitle("CMS Preliminary 2015, D1. PXB;z /cm;#Deltaz=z_{Al2}-z_{Al1} /#mum");
    
    Double_t zdzPXBp_fx277[384] = {
    2.646289,
@@ -1587,11 +1588,21 @@ void z_vs_dz_PXB_1()
    graph->SetMarkerStyle(6);
    multigraph->Add(graph,"P");
    multigraph->Draw("A");
+
+   TText* textRed = new TText(0.40,0.87,"red: z<0,");
+   textRed->SetNDC();
+   textRed->SetTextColor(2);
+   textRed->Draw("same");
+
+   TText* textBlack = new TText(0.60,0.87,"black: z>0");
+   textBlack->SetNDC();   
+   textBlack->Draw("same");
+
    multigraph->GetXaxis()->SetTitle("z /cm");
    //multigraph->GetXaxis()->SetLabelFont(132);
    //multigraph->GetXaxis()->SetLabelSize(0.08);
    //multigraph->GetXaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitle("#Deltaz /#mum");
+   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{Al2}-z_{Al1} /#mum");
    //multigraph->GetYaxis()->SetLabelFont(132);
    //multigraph->GetYaxis()->SetLabelSize(0.08);
    //multigraph->GetYaxis()->SetTitleSize(0.08);

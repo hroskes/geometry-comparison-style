@@ -3,7 +3,8 @@
 #include "TGraph.h"
 #include "TMultiGraph.h"
 #include "TAxis.h"
-#include "Alignment/OfflineValidation/plugins/TkAlStyle.cc"
+#include "TText.h"
+#include "TkAlStyle.cc"
 
 void z_vs_dz_PXF_1()
 {
@@ -26,7 +27,7 @@ void z_vs_dz_PXF_1()
    
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("z_vs_dz_PXF_1");
-   multigraph->SetTitle("PXF;z /cm;#Deltaz /#mum");
+   multigraph->SetTitle("CMS Preliminary 2015, D1. PXF;z /cm;#Deltaz=z_{Al2}-z_{Al1} /#mum");
    
    Double_t zdzPXFp_fx279[336] = {
    33.27489,
@@ -704,7 +705,7 @@ void z_vs_dz_PXF_1()
    237.4379};
    TGraph *graph = new TGraph(336,zdzPXFp_fx279,zdzPXFp_fy279);
    graph->SetName("zdzPXFp");
-   graph->SetTitle("PXF at z>=0;z /cm;#Deltaz /#mum");
+   graph->SetTitle("PXF at z>=0;z /cm;#Deltaz=z_{Al2}-z_{Al1} /#mum");
    graph->SetFillColor(1);
    graph->SetMarkerStyle(6);
    multigraph->Add(graph,"P");
@@ -1385,7 +1386,7 @@ void z_vs_dz_PXF_1()
    -4505.595};
    graph = new TGraph(336,zdzPXFn_fx280,zdzPXFn_fy280);
    graph->SetName("zdzPXFn");
-   graph->SetTitle("PXF at z<0;z /cm;#Deltaz /#mum");
+   graph->SetTitle("PXF at z<0;z /cm;#Deltaz=z_{Al2}-z_{Al1} /#mum");
    graph->SetFillColor(1);
 
    Int_t ci;      // for color index setting
@@ -1395,11 +1396,21 @@ void z_vs_dz_PXF_1()
    graph->SetMarkerStyle(6);
    multigraph->Add(graph,"P");
    multigraph->Draw("A");
+
+   TText* textRed = new TText(0.40,0.87,"red: z<0,");
+   textRed->SetNDC();
+   textRed->SetTextColor(2);
+   textRed->Draw("same");
+
+   TText* textBlack = new TText(0.60,0.87,"black: z>0");
+   textBlack->SetNDC();   
+   textBlack->Draw("same");
+
    multigraph->GetXaxis()->SetTitle("z /cm");
    //multigraph->GetXaxis()->SetLabelFont(132);
    //multigraph->GetXaxis()->SetLabelSize(0.08);
    //multigraph->GetXaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitle("#Deltaz /#mum");
+   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{Al2}-z_{Al1} /#mum");
    //multigraph->GetYaxis()->SetLabelFont(132);
    //multigraph->GetYaxis()->SetLabelSize(0.08);
    //multigraph->GetYaxis()->SetTitleSize(0.08);
