@@ -4,11 +4,13 @@
 #include "TMultiGraph.h"
 #include "TAxis.h"
 #include "TText.h"
+#include "TLatex.h"
 #include "TkAlStyle.cc"
 
 void r_vs_dz_PXF_1()
 {
-   TkAlStyle::set(INTERNAL);
+   TkAlStyle::set(PRELIMINARY);
+
 //=========Macro generated from canvas: c_r_vs_dz_PXF_1/r vs. dz at PXF level
 //=========  (Mon Jul  6 19:49:37 2015) by ROOT version6.02/05
    TCanvas *c_r_vs_dz_PXF_1 = new TCanvas("c_r_vs_dz_PXF_1", "r vs. dz at PXF level"/*,0,0,3508,2480*/);
@@ -27,7 +29,7 @@ void r_vs_dz_PXF_1()
    
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("r_vs_dz_PXF_1");
-   multigraph->SetTitle("CMS Preliminary 2015. PXF;r /cm;#Deltaz=z_{Al2}-z_{Al1} /#mum");
+   multigraph->SetTitle(";r /cm;#Deltaz=z_{Al2}-z_{Al1} /#mum");
    
    Double_t rdzPXFp_fx39[336] = {
    6.106401,
@@ -1405,12 +1407,25 @@ void r_vs_dz_PXF_1()
    TText* textBlack = new TText(0.60,0.87,"black: z>0");
    textBlack->SetNDC();   
    textBlack->Draw("same");
+   TkAlStyle::drawStandardTitle();
 
-   multigraph->GetXaxis()->SetTitle("r, [cm]");
+   TText* text1 = new TText(0.20,0.65,"FPIX");
+   text1->SetNDC();   
+   text1->Draw("same");
+   TLatex* text_z2 = new TLatex(0.20,0.60,"z_{2}: Aligned (0T collisions + cosmic rays)");
+   text_z2->SetTextSize(0.04);
+   text_z2->SetNDC();
+   text_z2->Draw("same");
+   TLatex* text_z1 = new TLatex(0.20,0.55,"z_{1}: No Run-2 alignment (Run-1 geometry)");
+   text_z1->SetTextSize(0.04);
+   text_z1->SetNDC();
+   text_z1->Draw("same");
+
+   multigraph->GetXaxis()->SetTitle("r [cm]");
    //multigraph->GetXaxis()->SetLabelFont(132);
    //multigraph->GetXaxis()->SetLabelSize(0.08);
    //multigraph->GetXaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{Al2}-z_{Al1}, [#mum]");
+   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{2}-z_{1} [#mum]");
    //multigraph->GetYaxis()->SetLabelFont(132);
    //multigraph->GetYaxis()->SetLabelSize(0.08);
    //multigraph->GetYaxis()->SetTitleSize(0.08);

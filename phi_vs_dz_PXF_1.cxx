@@ -9,7 +9,7 @@
 
 void phi_vs_dz_PXF_1()
 {
-   TkAlStyle::set(INTERNAL);
+   TkAlStyle::set(PRELIMINARY);
 //=========Macro generated from canvas: c_phi_vs_dz_PXF_1/phi vs. dz at PXF level
 //=========  (Mon Jul  6 19:49:40 2015) by ROOT version6.02/05
    TCanvas *c_phi_vs_dz_PXF_1 = new TCanvas("c_phi_vs_dz_PXF_1", "phi vs. dz at PXF level"/*,0,0,3508,2480*/);
@@ -28,7 +28,7 @@ void phi_vs_dz_PXF_1()
    
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("phi_vs_dz_PXF_1");
-   multigraph->SetTitle("CMS Preliminary 2015. PXF;#phi /rad;#Deltaz=z_{Al2}-z_{Al1} /#mum");
+   multigraph->SetTitle(";#phi /rad;#Deltaz=z_{Al2}-z_{Al1} /#mum");
    
    Double_t phidzPXFp_fx159[336] = {
    0.03707204,
@@ -1407,26 +1407,32 @@ void phi_vs_dz_PXF_1()
    textBlack->SetNDC();   
    textBlack->Draw("same");
 
-   TLatex* textLabelUp1 = new TLatex(0.20,0.68,"disks z>0: no significant movements");
+   TLatex* textLabelUp1 = new TLatex(0.20,0.68,"FPIX half disks z>0");
    textLabelUp1->SetNDC();
-   textLabelUp1->SetTextSize(0.030);
+   textLabelUp1->SetTextSize(0.050);
    textLabelUp1->Draw("same");
 
-   TLatex* textLabel1 = new TLatex(0.20,0.43,"half disks -#pi<(2#pi-#phi)<#pi, z<0: ~4.5 mm");
-   TLatex* textLabel2 = new TLatex(0.20,0.38,"half disks -#pi<#phi<#pi, z<0: ~5.5 mm (away from center)");
-   textLabel1->SetTextSize(0.030);
-   textLabel2->SetTextSize(0.030);
+   TLatex* text_z2 = new TLatex(0.20,0.55,"z_{2}: Aligned (0T collisions + cosmic rays)");
+   text_z2->SetTextSize(0.04);
+   text_z2->SetNDC();
+   text_z2->Draw("same");
+   TLatex* text_z1 = new TLatex(0.20,0.50,"z_{1}: No Run-2 alignment (Run-1 geometry)");
+   text_z1->SetTextSize(0.04);
+   text_z1->SetNDC();
+   text_z1->Draw("same");
+
+   TLatex* textLabel1 = new TLatex(0.20,0.38,"FPIX half disks z<0");
+   textLabel1->SetTextSize(0.050);
    textLabel1->SetNDC();
-   textLabel2->SetNDC();
    textLabel1->Draw("same");
-   textLabel2->Draw("same");
 
+   TkAlStyle::drawStandardTitle();
 
-   multigraph->GetXaxis()->SetTitle("#phi, [rad]");
+   multigraph->GetXaxis()->SetTitle("#phi [rad]");
    //multigraph->GetXaxis()->SetLabelFont(132);
    //multigraph->GetXaxis()->SetLabelSize(0.08);
    //multigraph->GetXaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{Al2}-z_{Al1}, [#mum]");
+   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{2}-z_{1} [#mum]");
    //multigraph->GetYaxis()->SetLabelFont(132);
    //multigraph->GetYaxis()->SetLabelSize(0.08);
    //multigraph->GetYaxis()->SetTitleSize(0.08);
