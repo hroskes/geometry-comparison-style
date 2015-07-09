@@ -27,7 +27,7 @@ void r_vs_dz_PXF_1()
    
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("r_vs_dz_PXF_1");
-   multigraph->SetTitle("CMS Preliminary 2015, D1. PXF;r /cm;#Deltaz=z_{Al2}-z_{Al1} /#mum");
+   multigraph->SetTitle("CMS Preliminary 2015. PXF;r /cm;#Deltaz=z_{Al2}-z_{Al1} /#mum");
    
    Double_t rdzPXFp_fx39[336] = {
    6.106401,
@@ -1406,11 +1406,11 @@ void r_vs_dz_PXF_1()
    textBlack->SetNDC();   
    textBlack->Draw("same");
 
-   multigraph->GetXaxis()->SetTitle("r /cm");
+   multigraph->GetXaxis()->SetTitle("r, [cm]");
    //multigraph->GetXaxis()->SetLabelFont(132);
    //multigraph->GetXaxis()->SetLabelSize(0.08);
    //multigraph->GetXaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{Al2}-z_{Al1} /#mum");
+   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{Al2}-z_{Al1}, [#mum]");
    //multigraph->GetYaxis()->SetLabelFont(132);
    //multigraph->GetYaxis()->SetLabelSize(0.08);
    //multigraph->GetYaxis()->SetTitleSize(0.08);

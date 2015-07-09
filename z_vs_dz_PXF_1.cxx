@@ -4,6 +4,7 @@
 #include "TMultiGraph.h"
 #include "TAxis.h"
 #include "TText.h"
+#include "TLatex.h"
 #include "TkAlStyle.cc"
 
 void z_vs_dz_PXF_1()
@@ -27,7 +28,7 @@ void z_vs_dz_PXF_1()
    
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("z_vs_dz_PXF_1");
-   multigraph->SetTitle("CMS Preliminary 2015, D1. PXF;z /cm;#Deltaz=z_{Al2}-z_{Al1} /#mum");
+   multigraph->SetTitle("CMS Preliminary 2015. PXF;z /cm;#Deltaz=z_{Al2}-z_{Al1} /#mum");
    
    Double_t zdzPXFp_fx279[336] = {
    33.27489,
@@ -1406,11 +1407,29 @@ void z_vs_dz_PXF_1()
    textBlack->SetNDC();   
    textBlack->Draw("same");
 
-   multigraph->GetXaxis()->SetTitle("z /cm");
+   TLatex* textLabelUp1 = new TLatex(0.20,0.80,"half disks z>0:");
+   TLatex* textLabelUp2 = new TLatex(0.20,0.75,"no significant movements");
+   textLabelUp1->SetNDC();
+   textLabelUp1->SetTextSize(0.035);
+   textLabelUp1->Draw("same");
+   textLabelUp2->SetNDC();
+   textLabelUp2->SetTextSize(0.035);
+   textLabelUp2->Draw("same");
+
+   TLatex* textLabel1 = new TLatex(0.40,0.25,"half disks z<0:");
+   TLatex* textLabel2 = new TLatex(0.40,0.20,"~5 mm away from center");
+   textLabel1->SetTextSize(0.035);
+   textLabel1->SetNDC();
+   textLabel1->Draw("same");
+   textLabel2->SetTextSize(0.035);
+   textLabel2->SetNDC();
+   textLabel2->Draw("same");
+
+   multigraph->GetXaxis()->SetTitle("z, [cm]");
    //multigraph->GetXaxis()->SetLabelFont(132);
    //multigraph->GetXaxis()->SetLabelSize(0.08);
    //multigraph->GetXaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{Al2}-z_{Al1} /#mum");
+   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{Al2}-z_{Al1}, [#mum]");
    //multigraph->GetYaxis()->SetLabelFont(132);
    //multigraph->GetYaxis()->SetLabelSize(0.08);
    //multigraph->GetYaxis()->SetTitleSize(0.08);

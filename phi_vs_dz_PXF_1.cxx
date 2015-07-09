@@ -4,6 +4,7 @@
 #include "TMultiGraph.h"
 #include "TAxis.h"
 #include "TText.h"
+#include "TLatex.h"
 #include "TkAlStyle.cc"
 
 void phi_vs_dz_PXF_1()
@@ -27,7 +28,7 @@ void phi_vs_dz_PXF_1()
    
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("phi_vs_dz_PXF_1");
-   multigraph->SetTitle("CMS Preliminary 2015, D1. PXF;#phi /rad;#Deltaz=z_{Al2}-z_{Al1} /#mum");
+   multigraph->SetTitle("CMS Preliminary 2015. PXF;#phi /rad;#Deltaz=z_{Al2}-z_{Al1} /#mum");
    
    Double_t phidzPXFp_fx159[336] = {
    0.03707204,
@@ -1406,11 +1407,26 @@ void phi_vs_dz_PXF_1()
    textBlack->SetNDC();   
    textBlack->Draw("same");
 
-   multigraph->GetXaxis()->SetTitle("#phi /rad");
+   TLatex* textLabelUp1 = new TLatex(0.20,0.68,"disks z>0: no significant movements");
+   textLabelUp1->SetNDC();
+   textLabelUp1->SetTextSize(0.030);
+   textLabelUp1->Draw("same");
+
+   TLatex* textLabel1 = new TLatex(0.20,0.43,"half disks -#pi<(2#pi-#phi)<#pi, z<0: ~4.5 mm");
+   TLatex* textLabel2 = new TLatex(0.20,0.38,"half disks -#pi<#phi<#pi, z<0: ~5.5 mm (away from center)");
+   textLabel1->SetTextSize(0.030);
+   textLabel2->SetTextSize(0.030);
+   textLabel1->SetNDC();
+   textLabel2->SetNDC();
+   textLabel1->Draw("same");
+   textLabel2->Draw("same");
+
+
+   multigraph->GetXaxis()->SetTitle("#phi, [rad]");
    //multigraph->GetXaxis()->SetLabelFont(132);
    //multigraph->GetXaxis()->SetLabelSize(0.08);
    //multigraph->GetXaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{Al2}-z_{Al1} /#mum");
+   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{Al2}-z_{Al1}, [#mum]");
    //multigraph->GetYaxis()->SetLabelFont(132);
    //multigraph->GetYaxis()->SetLabelSize(0.08);
    //multigraph->GetYaxis()->SetTitleSize(0.08);

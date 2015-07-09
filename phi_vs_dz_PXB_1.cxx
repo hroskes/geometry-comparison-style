@@ -29,7 +29,7 @@ void phi_vs_dz_PXB_1()
    
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("phi_vs_dz_PXB_1");
-   multigraph->SetTitle("CMS Preliminary 2015, D1. PXB;#phi /rad;#Deltaz=z_{Al2}-z_{Al1}/#mum");
+   multigraph->SetTitle("CMS Preliminary 2015. PXB;#phi /rad;#Deltaz=z_{Al2}-z_{Al1}/#mum");
    
    Double_t phidzPXBp_fx157[384] = {
    0.1399743,
@@ -1602,15 +1602,37 @@ void phi_vs_dz_PXB_1()
    textBlack->SetNDC();   
    textBlack->Draw("same");
 
+   TLatex* textLabelUp1 = new TLatex(0.20,0.73,"half barrel -#pi<(2#pi-#phi)<#pi");
+   TLatex* textLabelUp2 = new TLatex(0.20,0.68,"WAS NOT subject of PXB repair");
+   TLatex* textLabelUp2Blue = new TLatex(0.20,0.68,"WAS NOT");
+   textLabelUp1->SetNDC();
+   textLabelUp2->SetNDC();
+   textLabelUp2Blue->SetNDC();
+   textLabelUp2Blue->SetTextColor(4);
+   textLabelUp1->Draw("same");
+   textLabelUp2->Draw("same");
+   textLabelUp2Blue->Draw("same");
+
+   TLatex* textLabelDown1 = new TLatex(0.20,0.23,"half barrel -#pi<#phi<#pi");
+   TLatex* textLabelDown2 = new TLatex(0.20,0.18,"WAS subject of PXB repair");
+   TLatex* textLabelDown2Blue = new TLatex(0.20,0.18,"WAS");
+   textLabelDown1->SetNDC();
+   textLabelDown2->SetNDC();
+   textLabelDown2Blue->SetNDC();
+   textLabelDown2Blue->SetTextColor(4);
+   textLabelDown1->Draw();
+   textLabelDown2->Draw();
+   textLabelDown2Blue->Draw();
+
 //   TLatex* textDelta = new TLatex(0.40,0.82,"#Deltaz=z_{Al2}-z_{Al1}");
 //   textDelta->SetNDC();
 //   textDelta->Draw("same");
     
-   multigraph->GetXaxis()->SetTitle("#phi /rad");
+   multigraph->GetXaxis()->SetTitle("#phi, [rad]");
    //multigraph->GetXaxis()->SetLabelFont(132);
    //multigraph->GetXaxis()->SetLabelSize(0.08);
    //multigraph->GetXaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{Al2}-z_{Al1} /#mum");
+   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{Al2}-z_{Al1}, [#mum]");
    //multigraph->GetYaxis()->SetLabelFont(132);
    //multigraph->GetYaxis()->SetLabelSize(0.08);
    //multigraph->GetYaxis()->SetTitleSize(0.08);
