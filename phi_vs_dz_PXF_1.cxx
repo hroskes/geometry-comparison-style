@@ -3,7 +3,9 @@
 #include "TGraph.h"
 #include "TMultiGraph.h"
 #include "TAxis.h"
-#include "Alignment/OfflineValidation/plugins/TkAlStyle.cc"
+#include "TText.h"
+#include "TLatex.h"
+#include "TkAlStyle.cc"
 
 void phi_vs_dz_PXF_1()
 {
@@ -26,7 +28,7 @@ void phi_vs_dz_PXF_1()
    
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("phi_vs_dz_PXF_1");
-   multigraph->SetTitle("PXF;#phi /rad;#Deltaz /#mum");
+   multigraph->SetTitle("CMS Preliminary 2015. PXF;#phi /rad;#Deltaz=z_{Al2}-z_{Al1} /#mum");
    
    Double_t phidzPXFp_fx159[336] = {
    0.03707204,
@@ -1395,11 +1397,36 @@ void phi_vs_dz_PXF_1()
    graph->SetMarkerStyle(6);
    multigraph->Add(graph,"P");
    multigraph->Draw("A");
-   multigraph->GetXaxis()->SetTitle("#phi /rad");
+
+   TText* textRed = new TText(0.40,0.87,"red: z<0,");
+   textRed->SetNDC();
+   textRed->SetTextColor(2);
+   textRed->Draw("same");
+
+   TText* textBlack = new TText(0.60,0.87,"black: z>0");
+   textBlack->SetNDC();   
+   textBlack->Draw("same");
+
+   TLatex* textLabelUp1 = new TLatex(0.20,0.68,"disks z>0: no significant movements");
+   textLabelUp1->SetNDC();
+   textLabelUp1->SetTextSize(0.030);
+   textLabelUp1->Draw("same");
+
+   TLatex* textLabel1 = new TLatex(0.20,0.43,"half disks -#pi<(2#pi-#phi)<#pi, z<0: ~4.5 mm");
+   TLatex* textLabel2 = new TLatex(0.20,0.38,"half disks -#pi<#phi<#pi, z<0: ~5.5 mm (away from center)");
+   textLabel1->SetTextSize(0.030);
+   textLabel2->SetTextSize(0.030);
+   textLabel1->SetNDC();
+   textLabel2->SetNDC();
+   textLabel1->Draw("same");
+   textLabel2->Draw("same");
+
+
+   multigraph->GetXaxis()->SetTitle("#phi, [rad]");
    //multigraph->GetXaxis()->SetLabelFont(132);
    //multigraph->GetXaxis()->SetLabelSize(0.08);
    //multigraph->GetXaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitle("#Deltaz /#mum");
+   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{Al2}-z_{Al1}, [#mum]");
    //multigraph->GetYaxis()->SetLabelFont(132);
    //multigraph->GetYaxis()->SetLabelSize(0.08);
    //multigraph->GetYaxis()->SetTitleSize(0.08);

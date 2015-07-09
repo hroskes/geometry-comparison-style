@@ -3,7 +3,9 @@
 #include "TGraph.h"
 #include "TMultiGraph.h"
 #include "TAxis.h"
-#include "Alignment/OfflineValidation/plugins/TkAlStyle.cc"
+#include "TText.h"
+#include "TLatex.h"
+#include "TkAlStyle.cc"
 
 void phi_vs_dz_PXB_1()
 {
@@ -27,7 +29,7 @@ void phi_vs_dz_PXB_1()
    
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("phi_vs_dz_PXB_1");
-   multigraph->SetTitle("PXB;#phi /rad;#Deltaz /#mum");
+   multigraph->SetTitle("CMS Preliminary 2015. PXB;#phi /rad;#Deltaz=z_{Al2}-z_{Al1}/#mum");
    
    Double_t phidzPXBp_fx157[384] = {
    0.1399743,
@@ -1578,7 +1580,7 @@ void phi_vs_dz_PXB_1()
    -46.27171};
    graph = new TGraph(384,phidzPXBn_fx158,phidzPXBn_fy158);
    graph->SetName("phidzPXBn");
-   graph->SetTitle("PXB at z<0;#phi /rad;#Deltaz /#mum");
+   graph->SetTitle("PXB at z<0;#phi /rad;#Deltaz=z_{Al2}-z_{Al1} /#mum");
    graph->SetFillColor(1);
 
    Int_t ci;      // for color index setting
@@ -1586,13 +1588,51 @@ void phi_vs_dz_PXB_1()
    ci = TColor::GetColor("#ff0000");
    graph->SetMarkerColor(ci);
    graph->SetMarkerStyle(6);
+  
    multigraph->Add(graph,"P");
+
    multigraph->Draw("A");
-   multigraph->GetXaxis()->SetTitle("#phi /rad");
+
+   TText* textRed = new TText(0.40,0.87,"red: z<0,");
+   textRed->SetNDC();
+   textRed->SetTextColor(2);
+   textRed->Draw("same");
+
+   TText* textBlack = new TText(0.60,0.87,"black: z>0");
+   textBlack->SetNDC();   
+   textBlack->Draw("same");
+
+   TLatex* textLabelUp1 = new TLatex(0.20,0.73,"half barrel -#pi<(2#pi-#phi)<#pi");
+   TLatex* textLabelUp2 = new TLatex(0.20,0.68,"WAS NOT subject of PXB repair");
+   TLatex* textLabelUp2Blue = new TLatex(0.20,0.68,"WAS NOT");
+   textLabelUp1->SetNDC();
+   textLabelUp2->SetNDC();
+   textLabelUp2Blue->SetNDC();
+   textLabelUp2Blue->SetTextColor(4);
+   textLabelUp1->Draw("same");
+   textLabelUp2->Draw("same");
+   textLabelUp2Blue->Draw("same");
+
+   TLatex* textLabelDown1 = new TLatex(0.20,0.23,"half barrel -#pi<#phi<#pi");
+   TLatex* textLabelDown2 = new TLatex(0.20,0.18,"WAS subject of PXB repair");
+   TLatex* textLabelDown2Blue = new TLatex(0.20,0.18,"WAS");
+   textLabelDown1->SetNDC();
+   textLabelDown2->SetNDC();
+   textLabelDown2Blue->SetNDC();
+   textLabelDown2Blue->SetTextColor(4);
+   textLabelDown1->Draw();
+   textLabelDown2->Draw();
+   textLabelDown2Blue->Draw();
+
+//   TLatex* textDelta = new TLatex(0.40,0.82,"#Deltaz=z_{Al2}-z_{Al1}");
+//   textDelta->SetNDC();
+//   textDelta->Draw("same");
+    
+   multigraph->GetXaxis()->SetTitle("#phi, [rad]");
    //multigraph->GetXaxis()->SetLabelFont(132);
    //multigraph->GetXaxis()->SetLabelSize(0.08);
    //multigraph->GetXaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitle("#Deltaz /#mum");
+   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{Al2}-z_{Al1}, [#mum]");
    //multigraph->GetYaxis()->SetLabelFont(132);
    //multigraph->GetYaxis()->SetLabelSize(0.08);
    //multigraph->GetYaxis()->SetTitleSize(0.08);

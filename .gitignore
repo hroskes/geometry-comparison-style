@@ -1,2 +1,12 @@
 *.png
 *_cxx*
+*.so
+*.d
+*~
+*.aux
+*.out
+*.snm
+*.toc
+*.log
+*.nav
+*.pdf
