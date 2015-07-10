@@ -1,8 +1,18 @@
+#include "TCanvas.h"
+#include "TColor.h"
+#include "TGraph.h"
+#include "TMultiGraph.h"
+#include "TAxis.h"
+#include "TText.h"
+#include "TLatex.h"
+#include "TkAlStyle.cc"
+
 void phi_vs_dy_PXB_1()
 {
+   TkAlStyle::set(PRELIMINARY);
 //=========Macro generated from canvas: c_phi_vs_dy_PXB_1/phi vs. dy at PXB level
 //=========  (Mon Jul  6 19:49:41 2015) by ROOT version6.02/05
-   TCanvas *c_phi_vs_dy_PXB_1 = new TCanvas("c_phi_vs_dy_PXB_1", "phi vs. dy at PXB level",0,0,3508,2480);
+   TCanvas *c_phi_vs_dy_PXB_1 = new TCanvas("c_phi_vs_dy_PXB_1", "phi vs. dy at PXB level"/*,0,0,3508,2480*/);
    c_phi_vs_dy_PXB_1->Range(0,0,1,1);
    c_phi_vs_dy_PXB_1->SetFillColor(0);
    c_phi_vs_dy_PXB_1->SetBorderMode(0);
@@ -16,7 +26,7 @@ void phi_vs_dy_PXB_1()
    
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("phi_vs_dy_PXB_1");
-   multigraph->SetTitle("PXB;#phi /rad;#Deltay /#mum");
+   multigraph->SetTitle(";#phi /rad;#Deltay /#mum");
    
    Double_t phidyPXBp_fx229[384] = {
    0.1399743,
@@ -1577,16 +1587,20 @@ void phi_vs_dy_PXB_1()
    graph->SetMarkerStyle(6);
    multigraph->Add(graph,"P");
    multigraph->Draw("A");
+
+   TkAlStyle::drawStandardTitle();
+
    multigraph->GetXaxis()->SetTitle("#phi /rad");
-   multigraph->GetXaxis()->SetLabelFont(132);
-   multigraph->GetXaxis()->SetLabelSize(0.08);
-   multigraph->GetXaxis()->SetTitleSize(0.08);
+   //multigraph->GetXaxis()->SetLabelFont(132);
+   //multigraph->GetXaxis()->SetLabelSize(0.08);
+   //multigraph->GetXaxis()->SetTitleSize(0.08);
    multigraph->GetYaxis()->SetTitle("#Deltay /#mum");
-   multigraph->GetYaxis()->SetLabelFont(132);
-   multigraph->GetYaxis()->SetLabelSize(0.08);
-   multigraph->GetYaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitleFont(42);
+   //multigraph->GetYaxis()->SetLabelFont(132);
+   //multigraph->GetYaxis()->SetLabelSize(0.08);
+   //multigraph->GetYaxis()->SetTitleSize(0.08);
+   //multigraph->GetYaxis()->SetTitleFont(42);
    c_phi_vs_dy_PXB_1->Modified();
    c_phi_vs_dy_PXB_1->cd();
    c_phi_vs_dy_PXB_1->SetSelected(c_phi_vs_dy_PXB_1);
+   c_phi_vs_dy_PXB_1->SaveAs("phi_vs_dy_PXB_1.png");
 }
