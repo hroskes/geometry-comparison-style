@@ -6,6 +6,7 @@
 #include "TText.h"
 #include "TLatex.h"
 #include "TkAlStyle.cc"
+#include "SetDifferentTextSettings.C"
 
 void z_vs_dz_PXF_1()
 {
@@ -1399,34 +1400,29 @@ void z_vs_dz_PXF_1()
    multigraph->Draw("A");
 
    TText* textRed = new TText(0.40,0.87,"red: z<0,");
-   textRed->SetNDC();
-   textRed->SetTextColor(2);
+   SetTextRed(textRed);
    textRed->Draw("same");
 
-   TText* textBlack = new TText(0.60,0.87,"black: z>0");
-   textBlack->SetNDC();   
+   TText* textBlack = new TText();
+   SetTextBlack(textBlack);
    textBlack->Draw("same");
 
-   TLatex* textLabelUp1 = new TLatex(0.30,0.77,"FPIX half disks z>0");
-   textLabelUp1->SetNDC();
-   textLabelUp1->SetTextSize(0.05);
+
+   TLatex* textLabelUp1 = new TLatex(0.53,0.77,"FPIX half disks");
+   SetTextAll(textLabelUp1);
    textLabelUp1->Draw("same");
 
 
-   TLatex* textLabel1 = new TLatex(0.35,0.25,"FPIX half disks z<0");
-   textLabel1->SetTextSize(0.05);
-   textLabel1->SetNDC();
+   TLatex* textLabel1 = new TLatex(0.35,0.25,"FPIX half disks");
+   SetTextAll(textLabel1);
    textLabel1->Draw("same");
 
-   TLatex* text_z2 = new TLatex(0.20,0.65,"z_{2}: Aligned (0T collisions + cosmic rays)");
-   text_z2->SetTextSize(0.04);
-   text_z2->SetNDC();
+   TText* text_z2 = new TText(0.20,0.65,"");
+   SetTextAlignmentLineUp(text_z2);
    text_z2->Draw("same");
-   TLatex* text_z1 = new TLatex(0.20,0.60,"z_{1}: No Run-2 alignment (Run-1 geometry)");
-   text_z1->SetTextSize(0.04);
-   text_z1->SetNDC();
+   TText* text_z1 = new TText(0.20,0.60,"");
+   SetTextAlignmentLineDown(text_z1);
    text_z1->Draw("same");
-
 
    TkAlStyle::drawStandardTitle();
 
@@ -1434,7 +1430,7 @@ void z_vs_dz_PXF_1()
    //multigraph->GetXaxis()->SetLabelFont(132);
    //multigraph->GetXaxis()->SetLabelSize(0.08);
    //multigraph->GetXaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{2}-z_{1} [#mum]");
+   multigraph->GetYaxis()->SetTitle("#Deltaz [#mum]");
    //multigraph->GetYaxis()->SetLabelFont(132);
    //multigraph->GetYaxis()->SetLabelSize(0.08);
    //multigraph->GetYaxis()->SetTitleSize(0.08);
@@ -1443,4 +1439,5 @@ void z_vs_dz_PXF_1()
    c_z_vs_dz_PXF_1->cd();
    c_z_vs_dz_PXF_1->SetSelected(c_z_vs_dz_PXF_1);
    c_z_vs_dz_PXF_1->SaveAs("z_vs_dz_PXF_1.png");
+   c_z_vs_dz_PXF_1->SaveAs("z_vs_dz_PXF_1.pdf");
 }
