@@ -6,6 +6,7 @@
 #include "TText.h"
 #include "TLatex.h"
 #include "TkAlStyle.cc"
+#include "SetDifferentTextSettings.C"
 
 void phi_vs_dz_PXB_1()
 {
@@ -1594,31 +1595,26 @@ void phi_vs_dz_PXB_1()
    multigraph->Draw("A");
 
    TText* textRed = new TText(0.40,0.87,"red: z<0,");
-   textRed->SetNDC();
-   textRed->SetTextColor(2);
+   SetTextRed(textRed);
    textRed->Draw("same");
 
-   TText* textBlack = new TText(0.60,0.87,"black: z>0");
-   textBlack->SetNDC();   
+   TText* textBlack = new TText();
+   SetTextBlack(textBlack);
    textBlack->Draw("same");
 
    TLatex* textLabelUp1 = new TLatex(0.20,0.68,"BPIX half barrel #phi<-#pi/2 and #phi>#pi/2");
-   textLabelUp1->SetNDC();
-   textLabelUp1->SetTextSize(0.04);
+   SetTextAll(textLabelUp1);
    textLabelUp1->Draw("same");
 
-   TLatex* text_z2 = new TLatex(0.20,0.63,"z_{2}: Aligned (0T collisions + cosmic rays)");
-   text_z2->SetTextSize(0.04);
-   text_z2->SetNDC();
+   TText* text_z2 = new TText(0.20,0.63,"");
+   SetTextAlignmentLineUp(text_z2);
    text_z2->Draw("same");
-   TLatex* text_z1 = new TLatex(0.20,0.58,"z_{1}: No Run-2 alignment (Run-1 geometry)");
-   text_z1->SetTextSize(0.04);
-   text_z1->SetNDC();
+   TText* text_z1 = new TText(0.20,0.58,"");
+   SetTextAlignmentLineDown(text_z1);
    text_z1->Draw("same");
 
    TLatex* textLabelDown1 = new TLatex(0.20,0.18,"BPIX half barrel -#pi/2<#phi<#pi/2");
-   textLabelDown1->SetNDC();
-   textLabelDown1->SetTextSize(0.04);
+   SetTextAll(textLabelDown1);
    textLabelDown1->Draw();
 
    TkAlStyle::drawStandardTitle();
@@ -1631,7 +1627,7 @@ void phi_vs_dz_PXB_1()
    //multigraph->GetXaxis()->SetLabelFont(132);
    //multigraph->GetXaxis()->SetLabelSize(0.08);
    //multigraph->GetXaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitle("#Deltaz=z_{2}-z_{1} [#mum]");
+   multigraph->GetYaxis()->SetTitle("#Deltaz [#mum]");
    //multigraph->GetYaxis()->SetLabelFont(132);
    //multigraph->GetYaxis()->SetLabelSize(0.08);
    //multigraph->GetYaxis()->SetTitleSize(0.08);
@@ -1640,4 +1636,5 @@ void phi_vs_dz_PXB_1()
    c_phi_vs_dz_PXB_1->cd();
    c_phi_vs_dz_PXB_1->SetSelected(c_phi_vs_dz_PXB_1);
    c_phi_vs_dz_PXB_1->SaveAs("phi_vs_dz_PXB_1.png");
+   c_phi_vs_dz_PXB_1->SaveAs("phi_vs_dz_PXB_1.pdf");
 }

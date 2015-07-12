@@ -6,6 +6,7 @@
 #include "TText.h"
 #include "TLatex.h"
 #include "TkAlStyle.cc"
+#include "SetDifferentTextSettings.C"
 
 void phi_vs_dy_PXB_1()
 {
@@ -1588,13 +1589,38 @@ void phi_vs_dy_PXB_1()
    multigraph->Add(graph,"P");
    multigraph->Draw("A");
 
+   TText* textRed = new TText();
+   SetTextRed(textRed);
+   TString titRed = textRed->GetTitle();
+   textRed->SetText(0.60,0.87,titRed);
+   textRed->Draw("same");
+
+   TText* textBlack = new TText();
+   SetTextBlack(textBlack);
+   TString titBlack = textBlack->GetTitle();
+   textBlack->SetText(0.74,0.87,titBlack);
+   textBlack->Draw("same");
+
+   TText* text1 = new TText(0.23,0.60,"BPIX");
+   SetTextAll(text1);
+   text1->Draw("same");
+
+
+   TText* text_z2 = new TText(0.23,0.55,"");
+   SetTextAlignmentLineUp(text_z2);
+   text_z2->Draw("same");
+   TText* text_z1 = new TText(0.23,0.50,"");
+   SetTextAlignmentLineDown(text_z1);
+   text_z1->Draw("same");
+
+
    TkAlStyle::drawStandardTitle();
 
-   multigraph->GetXaxis()->SetTitle("#phi /rad");
+   multigraph->GetXaxis()->SetTitle("#phi [/rad]");
    //multigraph->GetXaxis()->SetLabelFont(132);
    //multigraph->GetXaxis()->SetLabelSize(0.08);
    //multigraph->GetXaxis()->SetTitleSize(0.08);
-   multigraph->GetYaxis()->SetTitle("#Deltay /#mum");
+   multigraph->GetYaxis()->SetTitle("#Deltay [#mum]");
    //multigraph->GetYaxis()->SetLabelFont(132);
    //multigraph->GetYaxis()->SetLabelSize(0.08);
    //multigraph->GetYaxis()->SetTitleSize(0.08);
@@ -1603,4 +1629,5 @@ void phi_vs_dy_PXB_1()
    c_phi_vs_dy_PXB_1->cd();
    c_phi_vs_dy_PXB_1->SetSelected(c_phi_vs_dy_PXB_1);
    c_phi_vs_dy_PXB_1->SaveAs("phi_vs_dy_PXB_1.png");
+   c_phi_vs_dy_PXB_1->SaveAs("phi_vs_dy_PXB_1.pdf");
 }
