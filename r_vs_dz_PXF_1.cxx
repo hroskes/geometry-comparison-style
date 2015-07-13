@@ -1400,7 +1400,7 @@ void r_vs_dz_PXF_1()
    multigraph->Add(graph,"P");
    multigraph->Draw("A");
 
-   TText* textRed = new TText(0.40,0.87,"red: z<0,");
+   TText* textRed = new TText();
    SetTextRed(textRed);
    textRed->Draw("same");
 
