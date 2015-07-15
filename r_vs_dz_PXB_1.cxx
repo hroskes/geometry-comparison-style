@@ -11,6 +11,8 @@
 void r_vs_dz_PXB_1()
 {
    TkAlStyle::set(PRELIMINARY);
+   const Double_t myMarkerSize = 1.0;
+
 //=========Macro generated from canvas: c_r_vs_dz_PXB_1/r vs. dz at PXB level
 //=========  (Mon Jul  6 19:49:37 2015) by ROOT version6.02/05
    TCanvas *c_r_vs_dz_PXB_1 = new TCanvas("c_r_vs_dz_PXB_1", "r vs. dz at PXB level"/*,0,0,3508,2480*/);
@@ -806,6 +808,8 @@ void r_vs_dz_PXB_1()
    graph->SetTitle("PXB at z>=0;r /cm;#Deltaz /#mum");
    graph->SetFillColor(1);
    graph->SetMarkerStyle(6);
+   graph->SetMarkerStyle(20);
+   graph->SetMarkerSize(myMarkerSize);
    multigraph->Add(graph,"P");
    
    Double_t rdzPXBn_fx38[384] = {
@@ -1588,6 +1592,8 @@ void r_vs_dz_PXB_1()
    ci = TColor::GetColor("#ff0000");
    graph->SetMarkerColor(ci);
    graph->SetMarkerStyle(6);
+   graph->SetMarkerStyle(20);
+   graph->SetMarkerSize(myMarkerSize);
    multigraph->Add(graph,"P");
 
 //   c_r_vs_dz_PXB_1->Divide(1,1,0.01,0.01);
