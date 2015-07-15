@@ -1616,7 +1616,7 @@ void phi_vs_dy_PXB_1()
 
    TkAlStyle::drawStandardTitle();
 
-   multigraph->GetXaxis()->SetTitle("#phi [/rad]");
+   multigraph->GetXaxis()->SetTitle("#phi [rad]");
    //multigraph->GetXaxis()->SetLabelFont(132);
    //multigraph->GetXaxis()->SetLabelSize(0.08);
    //multigraph->GetXaxis()->SetTitleSize(0.08);

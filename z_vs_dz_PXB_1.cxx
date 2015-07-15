@@ -1600,7 +1600,7 @@ void z_vs_dz_PXB_1()
    textBlack->Draw("same");
 
 
-   TText* text1 = new TText(0.20,0.65,"BPIX ladders");
+   TText* text1 = new TText(0.20,0.65,"BPIX");
    SetTextAll(text1); 
    text1->Draw("same");
 
