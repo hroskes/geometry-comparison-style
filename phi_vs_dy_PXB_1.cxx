@@ -24,6 +24,8 @@ void phi_vs_dy_PXB_1()
    c_phi_vs_dy_PXB_1->SetRightMargin(0.05);
    c_phi_vs_dy_PXB_1->SetBottomMargin(0.16);
    c_phi_vs_dy_PXB_1->SetFrameBorderMode(0);
+
+   const Double_t myMarkerSize = 1.0;
    
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("phi_vs_dy_PXB_1");
@@ -804,6 +806,8 @@ void phi_vs_dy_PXB_1()
    graph->SetTitle("PXB at z>=0;#phi /rad;#Deltay /#mum");
    graph->SetFillColor(1);
    graph->SetMarkerStyle(6);
+   graph->SetMarkerStyle(20);
+   graph->SetMarkerSize(myMarkerSize);
    multigraph->Add(graph,"P");
    
    Double_t phidyPXBn_fx230[384] = {
@@ -1586,6 +1590,8 @@ void phi_vs_dy_PXB_1()
    ci = TColor::GetColor("#ff0000");
    graph->SetMarkerColor(ci);
    graph->SetMarkerStyle(6);
+   graph->SetMarkerStyle(20);
+   graph->SetMarkerSize(myMarkerSize);
    multigraph->Add(graph,"P");
    multigraph->Draw("A");
 

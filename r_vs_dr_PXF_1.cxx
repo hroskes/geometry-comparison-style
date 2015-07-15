@@ -12,6 +12,8 @@ void r_vs_dr_PXF_1()
 {
    TkAlStyle::set(PRELIMINARY);
 
+   const Double_t myMarkerSize = 1.0;
+
 //=========Macro generated from canvas: c_r_vs_dr_PXF_1/r vs. dr at PXF level
 //=========  (Mon Jul  6 19:49:37 2015) by ROOT version6.02/05
    TCanvas *c_r_vs_dr_PXF_1 = new TCanvas("c_r_vs_dr_PXF_1", "r vs. dr at PXF level"/*,0,0,3508,2480*/);
@@ -709,6 +711,8 @@ void r_vs_dr_PXF_1()
    graph->SetTitle("PXF at z>=0;r /cm;#Deltar /#mum");
    graph->SetFillColor(1);
    graph->SetMarkerStyle(6);
+   graph->SetMarkerStyle(20);
+   graph->SetMarkerSize(myMarkerSize);
    multigraph->Add(graph,"P");
    
    Double_t rdrPXFn_fx16[336] = {
@@ -1395,6 +1399,8 @@ void r_vs_dr_PXF_1()
    ci = TColor::GetColor("#ff0000");
    graph->SetMarkerColor(ci);
    graph->SetMarkerStyle(6);
+   graph->SetMarkerStyle(20);
+   graph->SetMarkerSize(myMarkerSize);
    multigraph->Add(graph,"P");
    multigraph->Draw("A");
 

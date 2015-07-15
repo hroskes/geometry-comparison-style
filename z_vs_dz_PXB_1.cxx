@@ -11,6 +11,9 @@
 void z_vs_dz_PXB_1()
 {
    TkAlStyle::set(PRELIMINARY);
+
+   const Double_t myMarkerSize = 1.0;
+
 //=========Macro generated from canvas: c_z_vs_dz_PXB_1/z vs. dz at PXB level
 //=========  (Mon Jul  6 19:49:42 2015) by ROOT version6.02/05
    TCanvas *c_z_vs_dz_PXB_1 = new TCanvas("c_z_vs_dz_PXB_1", "z vs. dz at PXB level"/*,0,0,3508,2480*/);
@@ -26,7 +29,7 @@ void z_vs_dz_PXB_1()
    c_z_vs_dz_PXB_1->SetBottomMargin(0.16);
    c_z_vs_dz_PXB_1->SetFrameBorderMode(0);
 */
-   
+
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("z_vs_dz_PXB_1");
    multigraph->SetTitle(";z /cm;#Deltaz=z_{Al2}-z_{Al1} /#mum");
@@ -806,6 +809,9 @@ void z_vs_dz_PXB_1()
    graph->SetTitle("PXB at z>=0;z /cm;#Deltaz /#mum");
    graph->SetFillColor(1);
    graph->SetMarkerStyle(6);
+   graph->SetMarkerStyle(20);
+   graph->SetMarkerSize(myMarkerSize);
+
    multigraph->Add(graph,"P");
    
    Double_t zdzPXBn_fx278[384] = {
@@ -1588,6 +1594,9 @@ void z_vs_dz_PXB_1()
    ci = TColor::GetColor("#ff0000");
    graph->SetMarkerColor(ci);
    graph->SetMarkerStyle(6);
+   graph->SetMarkerStyle(20);
+   graph->SetMarkerSize(myMarkerSize);
+
    multigraph->Add(graph,"P");
    multigraph->Draw("A");
 

@@ -28,6 +28,8 @@ void phi_vs_dz_PXB_1()
    c_phi_vs_dz_PXB_1->SetFrameBorderMode(0);
 */
    
+   const Double_t myMarkerSize = 1.0;
+   
    TMultiGraph *multigraph = new TMultiGraph();
    multigraph->SetName("phi_vs_dz_PXB_1");
    multigraph->SetTitle(";#phi /rad;#Deltaz=z_{Al2}-z_{Al1}/#mum");
@@ -806,7 +808,8 @@ void phi_vs_dz_PXB_1()
    graph->SetName("phidzPXBp");
    graph->SetTitle("PXB at z>=0;#phi /rad;#Deltaz /#mum");
    graph->SetFillColor(1);
-   graph->SetMarkerStyle(6);
+   graph->SetMarkerStyle(20);
+   graph->SetMarkerSize(myMarkerSize);
    multigraph->Add(graph,"P");
    
    Double_t phidzPXBn_fx158[384] = {
@@ -1588,7 +1591,9 @@ void phi_vs_dz_PXB_1()
    TColor *color; // for color definition with alpha
    ci = TColor::GetColor("#ff0000");
    graph->SetMarkerColor(ci);
-   graph->SetMarkerStyle(6);
+   //   graph->SetMarkerStyle(6);
+   graph->SetMarkerStyle(20);
+   graph->SetMarkerSize(myMarkerSize);
   
    multigraph->Add(graph,"P");
 
